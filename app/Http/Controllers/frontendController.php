@@ -89,7 +89,7 @@ class frontendController extends Controller {
             // captcha not valid
             return response()->json([
                 'code' => '500',
-                'message' => 'Your captcha seems not valied. Please try again.',
+                'message' => 'Your captcha seems not valid. Please try again.',
             ]);
         }
 
@@ -123,7 +123,7 @@ class frontendController extends Controller {
         
         return response()->json([
             'code' => '200',
-            'message' => 'Thank you, one of our team members will contacti you shortly.',
+            'message' => 'Thank you, one of our team members will contact you shortly.',
         ]);
     }  
 }

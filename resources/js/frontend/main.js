@@ -365,24 +365,20 @@ var $ = jQuery.noConflict();
                     }else{
                         $('#modelFail').find("#error-msg").html(data.message);
                         $('#modelFail').modal('show'); 
-
-                        if(data.detail){
-                            console.log(data.detail);
-                            for (var key in data.detail) {
-                                console.log(key);
-                                if (data.detail.hasOwnProperty(key)) {
-                                    console.log(key);
-                                    // check form exist or ot
-                                    // set error on form
-                                    formValidation.setError($('form').find("[name='" + key + "']"), data.detail[key]);
-                                }
-                            }
-                        }
                     }
                 } else {
                     // toast
                     $('#modelFail').find("#error-msg").html(data.message);
                     $('#modelFail').modal('show'); 
+
+                    if(data.detail){
+                        for (var key in data.detail) {
+                            if (data.detail.hasOwnProperty(key)) {
+                                // set error on form
+                                formValidation.setError($('form').find("[name='" + key + "']"), data.detail[key]);
+                            }
+                        }
+                    }
                 }
             },
             error: function(data){
