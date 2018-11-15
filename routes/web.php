@@ -19,6 +19,7 @@ Route::get('/portofolio', 'frontendController@portofolio')->name('frontend.porto
 Route::get('/career', 'frontendController@career')->name('frontend.career');
 Route::get('/contacts', 'frontendController@contacts')->name('frontend.contacts');
 Route::post('/contacts', 'frontendController@writeGuestbook')->name('frontend.contacts.post');
+Route::get('/tes', 'frontendController@tes')->name('frontend.contacts.tes');
 
 
 // Backend

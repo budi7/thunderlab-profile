@@ -7,9 +7,11 @@ use App\Models\Portofolio;
 use App\Models\Career;
 use App\Models\Guestbook;
 use Carbon\Carbon;
-
+use App\Http\Traits\recaptchaTrait;
 
 class frontendController extends Controller {
+    use recaptchaTrait;
+
     public function index() {
         // init : page attributes
 		$this->page_attributes->title       = 'Home';
@@ -79,6 +81,17 @@ class frontendController extends Controller {
         $book->email = $input['email'];
         $book->nature = $input['nature'];
         $book->ip = \Request::ip();
+
+
+        // validate captcha
+        $result = recaptchaTrait::validateCaptcha($input['captcha']);
+        if(!$result){
+            // captcha not valid
+            return response()->json([
+                'code' => '500',
+                'message' => 'Your captcha seems not valied. Please try again.',
+            ]);
+        }
 
         // check ip
         $ip_count = Guestbook::where('ip', $book->ip)
