@@ -35,23 +35,13 @@
         
         @yield('template_script')
 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129284521-1"></script>
         <script>
-            /*
-        $().ready(function() {
-            $sidebar = $('.sidebar');
-            $navbar = $('.navbar');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-            $full_page = $('.full-page');
-
-            $sidebar_responsive = $('body > .navbar-collapse');
-            sidebar_mini_active = true;
-            white_color = false;
-
-            window_width = $(window).width();
-
-            fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-        });
-        */
+        gtag('config', 'UA-129284521-1');
         </script>
 
     </body>

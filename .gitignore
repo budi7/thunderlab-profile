@@ -12,3 +12,4 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
+storage/thunderlab-218909-737afede0528.json
