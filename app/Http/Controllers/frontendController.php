@@ -6,17 +6,26 @@ use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Models\Career;
 use App\Models\Guestbook;
+use App\Models\Core;
 use Carbon\Carbon;
 use App\Http\Traits\recaptchaTrait;
 
 class frontendController extends Controller {
     use recaptchaTrait;
 
+    private function getSettings(){
+        $core                               = Core::where("key", "web_config")
+                                                ->first();
+
+        return json_decode($core['value']);
+    }
+
     public function index() {
         // init : page attributes
 		$this->page_attributes->title       = 'Home';
 		$this->page_attributes->sub_title   = '';
-        $this->page_attributes->filter      =   null;
+        $this->page_attributes->filter      = null;
+        $this->page_datas->page             = $this->getSettings();
 
         // views
         $this->view                         = view('pages.frontend.index');
@@ -27,7 +36,9 @@ class frontendController extends Controller {
         // init : page attributes
 		$this->page_attributes->title       = 'Portofolio';
 		$this->page_attributes->sub_title   = '';
-        $this->page_attributes->filter      =   null;
+        $this->page_attributes->filter      = null;
+        $this->page_datas->page             = $this->getSettings();
+        
 
         $this->page_datas->years            =  Portofolio::select('year')
                                                 ->distinct('year')
@@ -45,7 +56,8 @@ class frontendController extends Controller {
         // init : page attributes
 		$this->page_attributes->title       = 'Career';
 		$this->page_attributes->sub_title   = '';
-        $this->page_attributes->filter      =   null;
+        $this->page_attributes->filter      = null;
+        $this->page_datas->page             = $this->getSettings();        
 
         $this->page_datas->types            =  Career::select('type')
                                                 ->distinct('type')
@@ -64,7 +76,8 @@ class frontendController extends Controller {
         // init : page attributes
 		$this->page_attributes->title       = 'Contacts';
 		$this->page_attributes->sub_title   = '';
-        $this->page_attributes->filter      =   null;
+        $this->page_attributes->filter      = null;
+        $this->page_datas->page             = $this->getSettings();
 
         // views
         $this->view                         = view('pages.frontend.contacts');

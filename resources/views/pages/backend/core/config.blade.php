@@ -38,11 +38,14 @@
 								<div class="col-md-5">
 									<div class="form-group">
 										<label>Company Logo</label>
-										<div class="pt-3 pb-3 pr-4 pl-0">
-											<img src="{{ asset('img/logo.png') }}" class="normal" alt="logo">
-											{{  Form::file('logo', ['class' => 'form-control']) }}
-										</div> 
+										<br />
+										<img id="preview_cover" src="{{ asset('img/logo.png') }}" class="normal pt-4 pb-4 pr-4 pl-0" alt="logo">
+										<br />
+										{{  Form::file('logo', [
+											'class' => 'form-control image-send',
+										]) }}
 										<a href="#" class="btn btn-sm btn-outline-primary">Change</a>
+										<p><small>* PNG Format, Max filesize 2MB</small></p>
 									</div>
 								</div>
 								<div class="col-md-7">
@@ -50,7 +53,7 @@
 										<div class="col-12">
 											<div class="form-group">
 												<label>Company Name</label>
-												{{  Form::text('name', $page_datas->id ? $page_datas->datas->company->name : null, ['class' => 'form-control']) }}
+												{{  Form::text('name', $page_datas->datas ? $page_datas->datas->name : null, ['class' => 'form-control']) }}
 											</div>
 										</div>
 									</div>
@@ -58,7 +61,7 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<label>Company Description</label>
-												{{  Form::textarea('username', $page_datas->id ? $page_datas->datas->company->description : null, ['class' => 'form-control']) }}
+												{{  Form::textarea('description', $page_datas->datas ? $page_datas->datas->description : null, ['class' => 'form-control']) }}
 											</div>
 										</div>
 									</div>
@@ -74,13 +77,13 @@
 								<div class="col-6">
 									<div class="form-group">
 										<label>Email</label>
-										{{  Form::email('email', $page_datas->id ? $page_datas->datas->contact->email : null, ['class' => 'form-control']) }}
+										{{  Form::email('email', $page_datas->datas ? $page_datas->datas->email : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 								<div class="col-6">
 									<div class="form-group">
 										<label>Phone</label>
-										{{  Form::text('phone', $page_datas->id ? $page_datas->datas->contact->phone : null, ['class' => 'form-control']) }}
+										{{  Form::text('phone', $page_datas->datas ? $page_datas->datas->phone : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 							</div>
@@ -88,7 +91,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Address</label>
-										{{  Form::textarea('username', $page_datas->id ? $page_datas->datas->company->description : null, ['class' => 'form-control']) }}
+										{{  Form::textarea('address', $page_datas->datas ? $page_datas->datas->address : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 							</div>
@@ -96,7 +99,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label>Operational Hours</label>
-										{{  Form::textarea('operational', $page_datas->id ? $page_datas->datas->company->operational : null, ['class' => 'form-control']) }}
+										{{  Form::textarea('operational', $page_datas->datas ? $page_datas->datas->operational : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 							</div>
@@ -111,19 +114,19 @@
 								<div class="col-4">
 									<div class="form-group">									
 										<label>Facebook</label>
-										{{  Form::text('facebook', $page_datas->id ? $page_datas->datas->social->facebook : null, ['class' => 'form-control']) }}
+										{{  Form::text('facebook', $page_datas->datas ? $page_datas->datas->facebook : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 								<div class="col-4">
 									<div class="form-group">									
 										<label>Instgram</label>
-										{{  Form::text('instagram', $page_datas->id ? $page_datas->datas->social->instagram : null, ['class' => 'form-control']) }}
+										{{  Form::text('instagram', $page_datas->datas ? $page_datas->datas->instagram : null, ['class' => 'form-control']) }}
 									</div>
 								</div>
 								<div class="col-4">
 									<div class="form-group">									
 										<label>Twitter</label>
-										{{  Form::text('twitter', $page_datas->id ? $page_datas->datas->social->twitter : null, ['class' => 'form-control']) }}
+										{{  Form::text('twitter', $page_datas->datas ? $page_datas->datas->twitter : null, ['class' => 'form-control']) }}
 									</div>								
 								</div>								
 							</div>
@@ -146,6 +149,7 @@
     
     
 @push('scripts')
-
+imageSend.setCsrfToken('{{ csrf_token() }}');
+imageSend.setUrl('{{ route('backend.media.upload.webcore') }}');
 @endpush
     

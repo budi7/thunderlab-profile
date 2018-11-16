@@ -78,9 +78,8 @@ Route::prefix('dashboard')->group(function () {
 
 	Route::get('/config', 'configController@create')->name('backend.config.create');
 	Route::post('/config', 'configController@store')->name('backend.config.store');
-	
 
-	Route::post('/media/uploader', 'mediaController@upload')->name('backend.media.upload');
-
+	Route::post('/media/uploader/portofolio', 'mediaController@uploadImagePortofolio')->name('backend.media.upload.portofolio');
+	Route::post('/media/uploader/webcore', 'mediaController@uploadImageWebcore')->name('backend.media.upload.webcore');
 
 });

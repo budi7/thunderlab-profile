@@ -36,15 +36,13 @@ class dashboardController extends Controller
         $analytics = Analytics::fetchVisitorsAndPageViews(Period::days(7));
 
         if(!$analytics){
-            return response()->json([
-                'code' => '500',
-                'data' => null
-            ]);
+            return [];
         }
         
         // format data
         $formatted_data = [];
         foreach ($analytics as $key => $analytic) {
+            // format date as string 
             $tmp_date = Carbon::createFromFormat('Y-m-d H:i:s', $analytic['date'], 'GMT+7');
 
             $tmp = [

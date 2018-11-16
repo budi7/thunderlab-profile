@@ -12,7 +12,7 @@ active
             <div class="col-md-12 padding-leftright-null">
                 <div id="page-header">
                     <div class="text">
-                        <h1 class="margin-bottom-small"><small>PT. Thunder Labs Indonesia</small></h1>
+                        <h1 class="margin-bottom-small"><small>{{ $page_datas->page->name }}</small></h1>
                         <p class="heading left max full grey-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos rem, error facilis eveniet perspiciatis tempora totam animi doloribus. Quia officia laudantium dolor sapiente? Dolor maxime voluptatum sint molestias ipsa.</p>
                     </div>            
                 </div>                  
@@ -48,63 +48,68 @@ active
                 <div class="col-sm-6 padding-leftright-null">
                     <div class="text small">
                         <p class="small margin-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                        <p>Vernon Building<br>
+
+                        @php
+                            // address formatting
+                            $tmp = explode("\n", nl2br(e( $page_datas->page->address)), 2); 
+                            $addr_firstline = $tmp[0];
+                            $addr_lastline = sizeOf($tmp) > 1 ? $tmp[1] : ""
+                        @endphp
+
+                        <p>{!! $addr_firstline !!}
                             <span class="small">
-                                Jl. Letjen Sutoyo 102<br>
-                                Malang, Indonesia
-                            </span></p>
+                                {!! $addr_lastline !!}
+                            </span>
+                        </p>
                             
-                            <p class="small">Mon. - Fri., 8 AM - 5 PM<br>
-                                Sat., 8 AM - 1 PM </p>
-                                
-                                <p class="small grey-dark">Tel. <a href="#" class="simple">+(62) 341 437 68 66</a></p>
-                                <p class="small">Email <a href="#" class="simple">hello@thunderlab.id</a></p>
+                        <p class="small">{!! nl2br(e( $page_datas->page->operational)) !!}</p>
+                        
+                        <p class="small grey-dark" style="margin-bottom:0px;">Tel. <a href="#" class="simple">{{ $page_datas->page->phone }}</a></p>
+                        <p class="small">Email <a href="#" class="simple">{{ $page_datas->page->email }}</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-6 padding-leftright-null">
+                    <!-- Contact Form -->
+                    <form id="contact-form" class="padding-md padding-md-topbottom-null" action="{{ route('frontend.contacts.post') }}">
+                        @csrf
+                        <div class="row no-margin">
+                            <div class="col-md-12 padding-leftright-null">
+                                <div class="form-group text small padding-topbottom-null">
+                                    <input class="form-field thunder-validation-input" name="name" id="name" type="text" placeholder="Name" thunder-validation-rules="required minLength=2 maxLength=100">
+                                </div>
+                            </div>                                
+                            <div class="col-md-6 padding-leftright-null">
+                                <div class="form-group text small padding-topbottom-null">
+                                    <input class="form-field thunder-validation-input" name="phone" id="phone" type="tel" placeholder="Phone" thunder-validation-rules="required minLength=6 maxLength=15">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 padding-leftright-null">
-                            <!-- Contact Form -->
-                            <form id="contact-form" class="padding-md padding-md-topbottom-null" action="{{ route('frontend.contacts.post') }}">
-                                @csrf
-                                <div class="row no-margin">
-                                    <div class="col-md-12 padding-leftright-null">
-                                        <div class="form-group text small padding-topbottom-null">
-                                            <input class="form-field thunder-validation-input" name="name" id="name" type="text" placeholder="Name" thunder-validation-rules="required minLength=2 maxLength=100">
-                                        </div>
-                                    </div>                                
-                                    <div class="col-md-6 padding-leftright-null">
-                                        <div class="form-group text small padding-topbottom-null">
-                                            <input class="form-field thunder-validation-input" name="phone" id="phone" type="tel" placeholder="Phone" thunder-validation-rules="required minLength=6 maxLength=15">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 padding-leftright-null">
-                                        <div class="form-group text small padding-topbottom-null">
-                                            <input class="form-field thunder-validation-input" name="email" id="email" type="email" placeholder="Email" thunder-validation-rules="required email">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 padding-leftright-null">
-                                        <div class="form-group margin-bottom-null text small padding-topbottom-null">
-                                            <input class="form-field thunder-validation-input" name="nature" id="nature" type="text" placeholder="Nature of enquiry" thunder-validation-rules="required">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 padding-leftright-null">
-                                        <div class="form-group text small padding-topbottom-null">
-                                            <div id="html_element" style="margin-bottom:.55rem;"></div> 
-                                            <input name="captcha" class="thunder-validation-input" type="hidden" thunder-validation-rules="required">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 padding-leftright-null">
-                                        <div class="text small padding-topbottom-null">
-                                            <div class="submit-area">
-                                                <button type="submit" id="submit-contact" class="btn-alt active shadow" >Contact Me</button>
-                                                <div id="msg" class="message"></div>
-                                            </div>
-                                        </div>
+                            <div class="col-md-6 padding-leftright-null">
+                                <div class="form-group text small padding-topbottom-null">
+                                    <input class="form-field thunder-validation-input" name="email" id="email" type="email" placeholder="Email" thunder-validation-rules="required email">
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-leftright-null">
+                                <div class="form-group margin-bottom-null text small padding-topbottom-null">
+                                    <input class="form-field thunder-validation-input" name="nature" id="nature" type="text" placeholder="Nature of enquiry" thunder-validation-rules="required">
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-leftright-null">
+                                <div class="form-group text small padding-topbottom-null">
+                                    <div id="html_element" style="margin-bottom:.55rem;"></div> 
+                                    <input name="captcha" class="thunder-validation-input" type="hidden" thunder-validation-rules="required">
+                                </div>
+                            </div>
+                            <div class="col-md-12 padding-leftright-null">
+                                <div class="text small padding-topbottom-null">
+                                    <div class="submit-area">
+                                        <button type="submit" id="submit-contact" class="btn-alt active shadow" >Contact Me</button>
+                                        <div id="msg" class="message"></div>
                                     </div>
                                 </div>
-                            </form>
-                            <!-- END Contact Form -->
+                            </div>
                         </div>
-                    </div>
+                    </form>
+                    <!-- END Contact Form -->
                 </div>
             </div>
             <!-- END Contact -->

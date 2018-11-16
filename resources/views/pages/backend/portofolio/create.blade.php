@@ -138,4 +138,5 @@
     
 @push('scripts')
 	imageSend.setCsrfToken('{{ csrf_token() }}');
+	imageSend.setUrl('{{ route('backend.media.upload.portofolio') }}');
 @endpush
