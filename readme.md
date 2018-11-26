@@ -1,4 +1,4 @@
-I. installation
+## I. installation
 ```
 // 1. download or clone
 git clone https://github.com/budi7/thunderlab-profile.git
@@ -13,12 +13,12 @@ npm install
 npm run production
 ```
 
-II. configs
+## II. configs
 1. create new mysql database 
 2. configure .env file (template on .env.example)
 3. configure google analytics account via .env files
 
-III. run
+## III. run
 1. migrate & seed
 ```
 php artisan migrate
