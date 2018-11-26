@@ -24,6 +24,11 @@ Route::get('/tes', 'frontendController@tes')->name('frontend.contacts.tes');
 
 // Backend
 Route::prefix('dashboard')->group(function () {
+	Route::get('/login', 'UACController@login')->name('backend.login');
+	Route::post('/login', 'UACController@logging')->name('backend.logging');
+	Route::get('/logout', 'UACController@logout')->name('backend.logout');
+	// Route::group(['middleware' => ['auth', 'status_passed']], function(){
+
 	Route::get('/', 'dashboardController@index')->name('backend.dashboard');
 	
     Route::resource('/user', 'userController', ['names' => [

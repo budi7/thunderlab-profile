@@ -5,16 +5,12 @@ window.imageSend = new function(){
 	var class_name = "image-send";
     var input_name = "image-url";
 	var csrf_token = "";
-	var url = "";
 	var preload_var = "imagePreload";
 
 	/* API */
 	this.setCsrfToken = function(token){
         csrf_token = token;
-	}
-	this.setUrl = function(req_url){
-        url = req_url;
-    }	
+    }
 
 	/* Event Handlers */
 	var input_cache = document.getElementsByClassName(class_name);
@@ -68,12 +64,6 @@ window.imageSend = new function(){
 	/* Modules */
 	// sequencer
 	function UploadSequence(input){
-		// check if url set
-		if(!url || url ==  ""){
-			console.log("ImageSend.js Error : Url has not been set");
-			return false;
-		}
-
 		// check any process running for this input
 		if(checkLock(input)){  return false; }
 
@@ -84,6 +74,7 @@ window.imageSend = new function(){
 		lockInput(input);
 
 		// ajax upload image
+		var url = 'http://localhost:3000/dashboard/media/uploader';
 		var upl = uploader;
 		upl.defineOnSuccess(function(resp){
 			drawImage(input);
