@@ -17,6 +17,7 @@ npm run production
 1. create new mysql database 
 2. configure .env file (template on .env.example)
 3. configure google analytics account via .env files
+4. copy google auth Json id to **/storage** directory
 
 ## III. run
 1. migrate & seed
