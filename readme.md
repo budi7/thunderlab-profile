@@ -21,11 +21,18 @@ npm run production
 
 ## III. run
 1. migrate & seed
+configure migration file **/database/seeds/user_seeder.php**
+```
+    $user['username'] = your email;
+    $user['password'] = your password;
+```
+
+run 
 ```
 php artisan migrate
 php artisan db:seed
 ```
-2. run
+1. run
 ```
 //with hot reload
 php artisan serve

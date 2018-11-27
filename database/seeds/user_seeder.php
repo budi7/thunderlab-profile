@@ -13,10 +13,15 @@ class user_seeder extends Seeder
      */
     public function run()
     {
+        User::truncate();
+
         $user = new User;
+        $user['name'] = "Budi Purnomo";
         $user['username'] = "budi-purnomo@outlook.com";
-        $user['password'] = 'admin';
+        $user['password'] = 'admin123';
         $user['role'] = 'admin';
-        $user->save();
+        if(!$user->save()){
+            dd($user->getErrors());
+        }
     }
 }
