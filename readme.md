@@ -28,12 +28,12 @@ configure migration file **/database/seeds/user_seeder.php**
     $user['password'] = your password;
 ```
 
-run 
+2. run 
 ```
 php artisan migrate
 php artisan db:seed
 ```
-1. run
+3. run
 ```
 //with hot reload
 php artisan serve
