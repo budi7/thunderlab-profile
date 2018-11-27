@@ -12,7 +12,7 @@ active
                 <div class="row">
                     <div class="col-sm-6 text-left">
                         @php
-                        $datestring=date("d M Y") . "Last Month";
+                        $datestring=date("d M Y") . "Last Week";
                         $dt=date_create($datestring);
                         @endphp
                         <h5 class="card-category">{{ $dt->format('d M Y') }} - {{ date("d M Y") }}</h5>

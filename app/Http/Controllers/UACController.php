@@ -22,10 +22,10 @@ class UACController extends Controller {
 	public function logging (Request $request)
 	{
 
-		if (Auth::attempt(['email' => $request->get('email'), 'password' => $request->get('password'), 'status' => 1]))  {			
+		if (Auth::attempt(['username' => $request->get('email'), 'password' => $request->get('password')]))  {			
 			return redirect()->intended('dashboard');
 		} else {
-			$this->page_attributes->msg['error']    = ["Password / Email Anda tidak valid"];
+			$this->page_attributes->msg['error']    = ["Invalid Password / Email"];
 				
 			return $this->generateRedirect(route('backend.login'));
 		}
@@ -36,7 +36,7 @@ class UACController extends Controller {
 		// for logout
 		Auth::logout();
 
-		return $this->generateRedirect(route('login'));
+		return $this->generateRedirect(route('backend.login'));
 	}
 
 	public function reset ()

@@ -62,7 +62,7 @@ class userController extends Controller
         $user['name'] = Input::get('name');
         $user['username'] = Input::get('username');
         $user['password'] = Input::get('password');
-        $user['role'] = "Writer";
+        $user['role'] =  $user['role'] ?  $user['role'] : "Writer";
                
         // save data
         try{
