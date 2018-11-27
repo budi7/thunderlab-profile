@@ -13,7 +13,9 @@
                    <div id="page-header">
                        <div class="text">
                            <h1 class="margin-bottom-small"><small>Portfolio</small></h1>
-                           <p class="heading left max full grey-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos rem, error facilis eveniet perspiciatis tempora totam animi doloribus. Quia officia laudantium dolor sapiente? Dolor maxime voluptatum sint molestias ipsa.</p>
+                           <p class="heading left max full grey-dark">
+                                It's more than just an application we build.</br>It's how we help our clients to bear their problems. 
+                           </p>
                        </div>
                    </div>
                </div>

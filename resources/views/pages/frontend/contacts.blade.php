@@ -13,7 +13,9 @@ active
                 <div id="page-header">
                     <div class="text">
                         <h1 class="margin-bottom-small"><small>{{ $page_datas->page->name }}</small></h1>
-                        <p class="heading left max full grey-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos rem, error facilis eveniet perspiciatis tempora totam animi doloribus. Quia officia laudantium dolor sapiente? Dolor maxime voluptatum sint molestias ipsa.</p>
+                        <p class="heading left max full grey-dark">
+                            Thunderlab is an IT Business Solution company that helps everyone (from small sized business to big sized company) to achieve their dreams in technology.
+                        </p>
                     </div>            
                 </div>                  
             </div>
@@ -47,7 +49,13 @@ active
             <div class="col-md-12 wrap-text">
                 <div class="col-sm-6 padding-leftright-null">
                     <div class="text small">
+                        @php
+                        /*
                         <p class="small margin-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+                        */
+                        @endphp
+
+                        <p class="small"></p>
 
                         @php
                             // address formatting

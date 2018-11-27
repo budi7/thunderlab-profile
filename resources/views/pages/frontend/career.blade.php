@@ -11,8 +11,10 @@
             <div class="col-md-12 padding-leftright-null">
                 <div id="page-header">
                     <div class="text">
-                        <h1 class="margin-bottom-small"><small>Let's Join Us</h1>
-                        <p class="heading left max full grey-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quos rem, error facilis eveniet perspiciatis tempora totam animi doloribus. Quia officia laudantium dolor sapiente? Dolor maxime voluptatum sint molestias ipsa.</p>
+                        <h1 class="margin-bottom-small"><small>Join Us</h1>
+                        <p class="heading left max full grey-dark">
+                            Working at Thunderlab means becoming part of dynamic team committed to achieving challenging objectives in technology things. Join, learn, and grow with us!
+                        </p>
                     </div>
                 </div>
             </div>
