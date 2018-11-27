@@ -58,7 +58,7 @@
 							<div class="row">
 								<div class="col-md-5 ">
 									<div class="form-group">
-										<label>Password {{ $page_datas->id ? ' ( kosongkan bila tidak ingin diubah )' : '' }}</label>
+										<label>Password {{ $page_datas->id ? ' ( leave it blank to keep old password )' : '' }}</label>
 										{{  Form::password('password', ['class' => 'form-control mb-2']) }}
 									</div>
 								</div>

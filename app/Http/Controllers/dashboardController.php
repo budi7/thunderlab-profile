@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Guestbook;
 
-use Analytics, Period;
+use Analytics, Period, Auth;
 use Carbon\Carbon;
 
 class dashboardController extends Controller
@@ -30,6 +30,20 @@ class dashboardController extends Controller
         $this->view                         = view('pages.backend.dashboard');
         return $this->generateView(); 
     }
+
+    public function profile()
+    {
+        // init : page attributes
+		$this->page_attributes->title       = 'Profil';
+		$this->page_attributes->sub_title   = '';
+        $this->page_attributes->filter      =  null;
+
+        $this->page_datas->datas            = Auth::user(); 
+
+         // views
+        $this->view                         = view('pages.backend.me');
+        return $this->generateView(); 
+    }    
 
     private function getAnalytics(){
         // Get analytics data

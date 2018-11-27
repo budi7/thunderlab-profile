@@ -31,6 +31,8 @@ Route::prefix('dashboard')->group(function () {
 	// Authed User Only
 	Route::group(['middleware' => ['auth']], function(){
 		Route::get('/', 'dashboardController@index')->name('backend.dashboard');
+		Route::get('/me', 'dashboardController@profile')->name('backend.me');
+		Route::any('/me/update-password', 'userController@updatePassword')->name('backend.updatePassword');
 		
 		Route::resource('/user', 'userController', ['names' => [
 			'index' 	=> 'backend.user.index', 

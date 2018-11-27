@@ -15,8 +15,38 @@ class userObserver extends User
 		// check for failure
 		if ($v->fails())
 		{
-            // new data ?
-            if(!$ori){
+            // old data ?
+            if($ori){
+                //exceptions
+                $err = $v->errors();
+
+                // name
+                if($err->first('name')){
+                    if($model['name'] != $ori['name']){
+                        // set errors and return false
+                        $model->setError([$err->first('name')]);
+                        return false;
+                    }
+                }
+
+                // username check
+                if($err->first('username')){
+                    if($model['username'] != $ori['username']){
+                        // set errors and return false
+                        $model->setError([$err->first('username')]);
+                        return false;
+                    }
+                }
+
+                // password check
+                if($err->first('password')){
+                    if($model['password'] != $ori['password']){
+                        // set errors and return false
+                        $model->setError([$err->first('password')]);
+                        return false;
+                    }
+                }
+            }else{
                 // set errors and return false
                 $model->setError($v->errors());
                 return false;

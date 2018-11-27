@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Input;
+use Input, Auth, Hash;
 
 class userController extends Controller
 {
@@ -144,5 +144,40 @@ class userController extends Controller
         $this->page_attributes->msg['success'] = 'Data Successfully Deleted';
        
         return $this->generateRedirect(route('backend.user.index'));
+    }
+
+
+    public function updatePassword(Request $request){
+        // find & validate user + password
+		if (!Auth::attempt( ['username' => Auth::user()['username'], 'password' => Input::get('old-password')] ))  {			
+            // abort
+            $this->page_attributes->msg['error'] = ['Incorrect old password'];
+            return $this->generateRedirect(route('backend.me'));
+        }
+
+        $user             = User::findOrFail(Auth::user()['id']);
+
+        // vlidate password
+        if(Input::get('new-password') == Input::get('old-password')){
+            // abort
+            $this->page_attributes->msg['error'] = ['Old password and New password must not same'];
+            return $this->generateRedirect(route('backend.me'));
+        }
+
+        // update new pasword
+        $user['password'] = Input::get('new-password');
+
+         // save data
+         try{
+            $user->save();
+            $this->page_attributes->msg['error'] = $user->getErrors();
+        }catch(\Illuminate\Database\QueryException $ex){
+            $this->page_attributes->msg['error'] = [$ex->getMessage()];
+        }
+        
+        // return view
+        $this->page_attributes->msg['success'] = 'Password successfully updated';
+                
+        return $this->generateRedirect(route('backend.me'));
     }
 }
