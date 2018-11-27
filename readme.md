@@ -16,13 +16,14 @@ npm run production
 ## II. configs
 1. create new mysql database 
 2. configure .env file (template on .env.example)
-3. configure google analytics account via .env files
+3. configure google analytics & recaptcha account via .env files
 4. copy google auth Json id to **/storage** directory
 
 ## III. run
 1. migrate & seed
 configure migration file **/database/seeds/user_seeder.php**
 ```
+    $user['name'] = your name;
     $user['username'] = your email;
     $user['password'] = your password;
 ```
