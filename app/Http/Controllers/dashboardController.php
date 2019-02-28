@@ -19,7 +19,8 @@ class dashboardController extends Controller
         $this->page_attributes->filter      =  null;
 
         // Get guestbook data
-        $this->page_datas->analytics        = $this->getAnalytics();  
+        // $this->page_datas->analytics        = $this->getAnalytics();  
+        $this->page_datas->analytics        = [];  
     
         // Get guestbook data
         $this->page_datas->guestbooks       = Guestbook::where('isContacted', null)
