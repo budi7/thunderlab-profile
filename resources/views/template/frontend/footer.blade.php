@@ -18,9 +18,15 @@
                     <div class="col-md-4 text">
                         <div class="row no-margin">
                             <ul class="social">
+                                @if($page_datas->page->twitter)
                                 <li><a href="{{ $page_datas->page->twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if($page_datas->page->facebook)
                                 <li><a href="{{ $page_datas->page->facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                @endif
+                                @if($page_datas->page->instagram)
                                 <li><a href="{{ $page_datas->page->instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

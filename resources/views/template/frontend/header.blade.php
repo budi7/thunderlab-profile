@@ -4,7 +4,7 @@
                     <nav class="navbar navbar-default">
                         <!--  Header Logo  -->
                         <div id="logo">
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" href="{{ route('frontend.home') }}">
                                 <img src="img/logo.png" class="normal" alt="logo">
                                 <img src="img/logo@2x.png" class="retina" alt="logo">
                             </a>

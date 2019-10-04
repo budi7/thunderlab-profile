@@ -13,7 +13,7 @@
                     <div class="text">
                         <h1 class="margin-bottom-small"><small>Join Us</h1>
                         <p class="heading left max full grey-dark">
-                            Working at Thunderlab means becoming part of dynamic team committed to achieving challenging objectives in technology things. Join, learn, and grow with us!
+                            Working at Thunderlab means becoming part of dynamic team committed to achieving challenging objectives in technology things. Learn more, achieve more, together with us.
                         </p>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                                 @forelse($page_datas->types as $key => $type)
                                 <li data-filter=".{{ str_replace(' ', '', $type->type) }}">{{ $type->type }}</li>
                                 @empty
-                                @endforelse                                
+                                @endforelse
                             </ul>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     @endforelse
                 </div>
             </section>
-            <!-- END Portfolio -->                    
+            <!-- END Portfolio -->
         </div>
     </div>
 </div>

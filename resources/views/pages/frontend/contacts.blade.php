@@ -16,8 +16,8 @@ active
                         <p class="heading left max full grey-dark">
                             Thunderlab is an IT Business Solution company that helps everyone (from small sized business to big sized company) to achieve their dreams in technology.
                         </p>
-                    </div>            
-                </div>                  
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +43,9 @@ active
         <div class="row no-margin padding-onlytop-lg">
             <div class="col-md-10 padding-leftright-null">
                 <div class="text padding-topbottom-null">
-                    <h2 class="heading margin-bottom-null">Let's do something amazing<span class="color">.</span></h2>
+                    <h2 class="heading margin-bottom-null">
+                        How may we help you?
+                    <span class="color">.</span></h2>
                 </div>
             </div>
             <div class="col-md-12 wrap-text">
@@ -59,7 +61,7 @@ active
 
                         @php
                             // address formatting
-                            $tmp = explode("\n", nl2br(e( $page_datas->page->address)), 2); 
+                            $tmp = explode("\n", nl2br(e( $page_datas->page->address)), 2);
                             $addr_firstline = $tmp[0];
                             $addr_lastline = sizeOf($tmp) > 1 ? $tmp[1] : ""
                         @endphp
@@ -69,9 +71,9 @@ active
                                 {!! $addr_lastline !!}
                             </span>
                         </p>
-                            
+
                         <p class="small">{!! nl2br(e( $page_datas->page->operational)) !!}</p>
-                        
+
                         <p class="small grey-dark" style="margin-bottom:0px;">Tel. <a href="#" class="simple">{{ $page_datas->page->phone }}</a></p>
                         <p class="small">Email <a href="#" class="simple">{{ $page_datas->page->email }}</a></p>
                     </div>
@@ -85,7 +87,7 @@ active
                                 <div class="form-group text small padding-topbottom-null">
                                     <input class="form-field thunder-validation-input" name="name" id="name" type="text" placeholder="Name" thunder-validation-rules="required minLength=2 maxLength=100">
                                 </div>
-                            </div>                                
+                            </div>
                             <div class="col-md-6 padding-leftright-null">
                                 <div class="form-group text small padding-topbottom-null">
                                     <input class="form-field thunder-validation-input" name="phone" id="phone" type="tel" placeholder="Phone" thunder-validation-rules="required minLength=6 maxLength=15">
@@ -103,7 +105,7 @@ active
                             </div>
                             <div class="col-md-12 padding-leftright-null">
                                 <div class="form-group text small padding-topbottom-null">
-                                    <div id="html_element" style="margin-bottom:.55rem;"></div> 
+                                    <div id="html_element" style="margin-bottom:.55rem;"></div>
                                     <input name="captcha" class="thunder-validation-input" type="hidden" thunder-validation-rules="required">
                                 </div>
                             </div>

@@ -14,14 +14,14 @@
                        <div class="text">
                            <h1 class="margin-bottom-small"><small>Portfolio</small></h1>
                            <p class="heading left max full grey-dark">
-                                It's more than just an application we build.</br>It's how we help our clients to bear their problems. 
+                                It's more than just an application we build.</br>It's how we help our clients to solve with their problems.
                            </p>
                        </div>
                    </div>
                </div>
            </div>
         </div>
-        
+
         <!--  END Page header  -->
         <div id="home-wrap" class="content-section">
             <div class="container">
@@ -62,7 +62,7 @@
                         @endforelse
                     </div>
                 </section>
-                <!-- END Portfolio -->                    
+                <!-- END Portfolio -->
             </div>
         </div>
     </div>
