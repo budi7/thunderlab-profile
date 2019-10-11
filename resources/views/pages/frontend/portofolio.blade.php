@@ -14,7 +14,7 @@
                        <div class="text">
                            <h1 class="margin-bottom-small"><small>Portfolio</small></h1>
                            <p class="heading left max full grey-dark">
-                                It's more than just an application we build.</br>It's how we help our clients to solve with their problems.
+                                It's more than just an application we build.</br>It's how we help our clients to solve their problems.
                            </p>
                        </div>
                    </div>

@@ -14,7 +14,8 @@ active
                     <div class="text">
                         <h1 class="margin-bottom-small"><small>{{ $page_datas->page->name }}</small></h1>
                         <p class="heading left max full grey-dark">
-                            Thunderlab is an IT Business Solution company that helps everyone (from small sized business to big sized company) to achieve their dreams in technology.
+                            <!-- Thunderlab is an IT Business Solution company that helps everyone (from small sized business to big sized company) to achieve their dreams in technology. -->
+                            How may we help you ?
                         </p>
                     </div>
                 </div>
