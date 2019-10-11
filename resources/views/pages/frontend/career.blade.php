@@ -13,7 +13,7 @@
                     <div class="text">
                         <h1 class="margin-bottom-small"><small>Join Us</h1>
                         <p class="heading left max full grey-dark">
-                            Working at Thunderlab means becoming part of dynamic team committed to achieving challenging objectives in technology things. Learn more, achieve more, together with us.
+                            Working at Thunderlab means committed to achieve challenging objectives in technologies. Learn more, achieve more,  <strong>together</strong>.
                         </p>
                     </div>
                 </div>
