@@ -74,7 +74,7 @@ window.imageSend = new function(){
 		lockInput(input);
 
 		// ajax upload image
-		var url = 'http://localhost:3000/dashboard/media/uploader';
+		var url = 'https://thunderlab.id/dashboard/media/uploaders';
 		var upl = uploader;
 		upl.defineOnSuccess(function(resp){
 			drawImage(input);
