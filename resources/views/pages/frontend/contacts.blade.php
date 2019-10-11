@@ -32,7 +32,7 @@ active
                     width="100%"
                     height="500"
                     frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDmmh38NDDQs7dNq_pyIOEp06f2_6LfsW4
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB71mstvJXEk7mZEMxJ69EdlH2-q-a5lds
                     &q=pt+thunder+lab+indonesia" allowfullscreen>
                 </iframe>
             </div>

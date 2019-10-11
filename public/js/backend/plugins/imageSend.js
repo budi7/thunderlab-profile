@@ -3,14 +3,18 @@ window.imageSend = new function(){
 	/* Settings */
 	var debug = true;
 	var class_name = "image-send";
-    var input_name = "image-url";
+	var input_name = "image-url";
 	var csrf_token = "";
 	var preload_var = "imagePreload";
+	var url = 'https://thunderlab.id/dashboard/media/uploaders';
 
 	/* API */
 	this.setCsrfToken = function(token){
-        csrf_token = token;
-    }
+		csrf_token = token;
+	}
+	this.setUrl = function(dt){
+		url = dt;
+	}
 
 	/* Event Handlers */
 	var input_cache = document.getElementsByClassName(class_name);
@@ -22,8 +26,8 @@ window.imageSend = new function(){
 			var new_dom_input =  document.createElement("input");
 			new_dom_input.setAttribute("type", "input");
 			new_dom_input.setAttribute("hidden", "hidden");
-			
-			// get current attributes 
+
+			// get current attributes
 			for (var att, i = 0, atts = obj.attributes, n = atts.length; i < n; i++){
 				att = atts[i];
 				var attr = att.nodeName;
@@ -35,7 +39,7 @@ window.imageSend = new function(){
 						// is any preload value
 						var canvas = findSibling(obj, "img")
 						canvas[0].setAttribute("src", obj.getAttribute(preload_var));
-						new_dom_input.setAttribute('value', obj.getAttribute(preload_var));						
+						new_dom_input.setAttribute('value', obj.getAttribute(preload_var));
 						obj.setAttribute(attr, "");
 					}else{
 						// copy attribute to new created input
@@ -74,7 +78,6 @@ window.imageSend = new function(){
 		lockInput(input);
 
 		// ajax upload image
-		var url = 'http://localhost:3000/dashboard/media/uploader';
 		var upl = uploader;
 		upl.defineOnSuccess(function(resp){
 			drawImage(input);
@@ -86,7 +89,7 @@ window.imageSend = new function(){
 			alert("Cant upload image, please try again. \nError : " + resp.statusText + " (" + resp.status + ")");
 		});
 		upl.defineOnLoading(function(percentage){
-			var parentofSelected = input.parentNode; 
+			var parentofSelected = input.parentNode;
 			if(percentage < 100){
 				parentofSelected.getElementsByTagName('a')[0].textContent = "Uploading " + percentage + " %";
 			}else{
@@ -122,17 +125,17 @@ window.imageSend = new function(){
 		}
 		this.defineOnLoading = function (syntax) {
 			on_loading = syntax;
-		}	
+		}
 		this.defineToken = function (tkn) {
 			token = tkn;
 		}
-		
+
 		this.upload = function(url, input, token) {
 			if (debug == true) {
 				console.log('Uploading Image ... ');
 				console.log('URL : ' + url);
-                console.log('Token : ' + token);
-                console.log('CSRF : ' + csrf_token);
+				console.log('Token : ' + token);
+				console.log('CSRF : ' + csrf_token);
 			}
 
 			var data = new FormData();
@@ -163,7 +166,7 @@ window.imageSend = new function(){
 
 			// Send POST request to the server side script
 			try{
-				request.open('post', url); 
+				request.open('post', url);
 				request.setRequestHeader('X-CSRF-TOKEN', csrf_token);
 				request.send(data);
 			}catch(ex){
@@ -185,7 +188,7 @@ window.imageSend = new function(){
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
-				var parentofSelected = input.parentNode; 
+				var parentofSelected = input.parentNode;
 				parentofSelected.getElementsByTagName('img')[0].setAttribute('src', e.target.result);
 			}
 			reader.readAsDataURL(input.files[0]);
@@ -195,7 +198,7 @@ window.imageSend = new function(){
 
 	/* Helpers */
 	function findSibling(currObj, searchTag){
-		var parentofSelected = currObj.parentNode; 
+		var parentofSelected = currObj.parentNode;
 		return parentofSelected.getElementsByTagName(searchTag);
 	}
 }
