@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col-sm-6 text-left">
 					<h2 class="card-title pt-3 mb-0"> {{ $page_attributes->title }} <small class="card-title">/ {{ $page_attributes->sub_title }}</small></h2>
-					</div>					
+					</div>
 					<div class="col-sm-6 text-right">
 						{{-- <a href="{{ route('backend.user.edit', ['id' => 1]) }}" class="btn btn-info btn-round ml-auto">
 							<i class="fa fa-pencil"></i> <span class="d-none d-sm-inline">Edit User</span>
@@ -30,7 +30,7 @@
 						'url' => $page_datas->id ? route('backend.portofolio.update', ['id' => $page_datas->id]) : route('backend.portofolio.store')
 					])!!}
 						{{ Form::token() }}
-						{{ $page_datas->datas ? method_field('PUT') : ''}}   
+						{{ $page_datas->datas ? method_field('PUT') : ''}}
 						<div class="row">
 							<div class="col-12">
 								<h4>The Project</h4>
@@ -92,8 +92,8 @@
 									<img id="preview_logo" src="{{ asset('img/noimage.png') }}" class="normal pt-4 pb-4 pr-4 pl-0" alt="logo">
 									<br />
 									{{  Form::file('client_logo', [
-										'class' => 'form-control image-send',
-										"imagePreload" => ( $page_datas->id ? $page_datas->datas->client['logo'] : null )
+                                        'class' => 'form-control image-send',
+                                        "imagePreload" => ( $page_datas->id ? $page_datas->datas->client->logo : null )
 									]) }}
 									<a href="#" class="btn btn-sm btn-outline-primary">Change</a>
 									{{-- <p><small>* recommended image resolution</small></p> --}}
@@ -134,8 +134,8 @@
     </div>
 </div>
 @endpush
-    
-    
+
+
 @push('scripts')
 	imageSend.setCsrfToken('{{ csrf_token() }}');
 	imageSend.setUrl('{{ route('backend.media.upload.portofolio') }}');
